@@ -13,11 +13,11 @@ public class Application extends AbstractVerticle {
         super.start();
 
         JsonObject jsonObject = Vertx.currentContext().config();
-//        Server server = new Server();
-//        server.start(jsonObject.getInteger("version"), vertx);
+        Server server = new Server();
+        server.start(vertx);
 
-        System.setProperty("properties", "application-" + Vertx.currentContext().config().getString("properties") + ".properties");
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("com.demo.cluster");
+//        System.setProperty("properties", "application-" + Vertx.currentContext().config().getString("properties") + ".properties");
+//        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("com.demo.cluster");
 
 //        System.out.println(jsonObject.getInteger("version"));
     }

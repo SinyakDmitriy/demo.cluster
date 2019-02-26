@@ -1,7 +1,7 @@
-package com.demo.cluster.spring.services;
+package com.demo.cluster.services;
 
 import com.demo.cluster.spring.annotations.InitProxy;
-import com.demo.cluster.spring.repository.IUserRepository;
+import com.demo.cluster.repository.mysql.IUserRepository;
 import io.reactivex.Observable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,7 +11,7 @@ public class ProcessingService {
 
     @Autowired private IUserRepository userRepository;
 
-    @InitProxy
+//    @InitProxy
     public void init(){
         userRepository.findAll()
                 .flatMap(r -> Observable.fromIterable(r))

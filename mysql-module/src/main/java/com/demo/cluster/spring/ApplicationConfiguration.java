@@ -1,6 +1,9 @@
 package com.demo.cluster.spring;
 
+import io.vertx.core.Vertx;
+import io.vertx.core.eventbus.EventBus;
 import org.flywaydb.core.Flyway;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +19,7 @@ public class ApplicationConfiguration {
     @Value("${flyway.password}") private String password;
     @Value("${flyway.url}") private String url;
 
+    @Autowired private Vertx vertx;
 
     @Bean
     public Flyway flyway(){
@@ -29,4 +33,8 @@ public class ApplicationConfiguration {
         return null;
     }
 
+    @Bean
+    public EventBus eventBus(){
+        return vertx.eventBus();
+    }
 }

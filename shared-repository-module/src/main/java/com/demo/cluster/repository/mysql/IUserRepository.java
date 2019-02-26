@@ -1,6 +1,6 @@
-package com.demo.cluster.spring.repository;
+package com.demo.cluster.repository.mysql;
 
-import com.demo.cluster.spring.model.User;
+import com.demo.cluster.model.mysql.User;
 import io.reactivex.Observable;
 
 import java.util.List;

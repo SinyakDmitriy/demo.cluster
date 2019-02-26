@@ -16,7 +16,7 @@ public class Server {
 
     private int port = 8080;
     
-    public void start(int key, Vertx vertx){
+    public void start(Vertx vertx){
         HttpServer server = vertx.createHttpServer();
         EventBus eb = vertx.eventBus();
 
@@ -26,17 +26,18 @@ public class Server {
             HttpServerResponse response = request.response();
             response.putHeader("content-type", "text/plain");
             Map<String, Object> map = new HashMap<>();
-            map.put("key", key);
+            map.put("id", 25);
+            map.put("_id", 25L);
             JsonObject msg = new JsonObject(map);
-            eb.send("request", msg);
+            eb.send("find.user.by.id", msg, ar -> {
+                if(ar.succeeded()) {
+                    JsonObject body = (JsonObject) ar.result().body();
+                    log.info("response -> {}", body);
+                }
+            });
             log.info("send message -> {}", msg);
             // Write to the response and end it
-            response.end("Hello World! key ->" + key + "  " + Thread.currentThread().getName());
-        });
-
-        eb.consumer("response", resp -> {
-            JsonObject msg = (JsonObject) resp.body();
-            log.info("response -> {}", msg);
+            response.end("Hello World! key ->" + 1 + "  " + Thread.currentThread().getName());
         });
 
         server.listen(port);

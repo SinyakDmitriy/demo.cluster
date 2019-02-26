@@ -1,7 +1,7 @@
-package com.demo.cluster.spring.repository.impl;
+package com.demo.cluster.repository.mysql.impl;
 
-import com.demo.cluster.spring.model.User;
-import com.demo.cluster.spring.repository.IUserRepository;
+import com.demo.cluster.model.mysql.User;
+import com.demo.cluster.repository.mysql.IUserRepository;
 import io.reactivex.Observable;
 import org.springframework.stereotype.Component;
 

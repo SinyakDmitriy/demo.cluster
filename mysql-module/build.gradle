@@ -11,9 +11,9 @@ repositories {
 }
 
 dependencies {
-    compile project(':shared-spring-module')
+    
+    compile project(':shared-repository-module')
     compile group: 'io.vertx', name: 'vertx-jdbc-client', version: '3.6.3'
-    compile group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.2.7'
     compile 'io.vertx:vertx-hazelcast:3.6.3'
     compile 'mysql:mysql-connector-java:8.0.15'
     compile "org.flywaydb:flyway-core:5.2.4"
