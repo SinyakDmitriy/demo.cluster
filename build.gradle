@@ -1,0 +1,39 @@
+group 'demo.cluster'
+version '1.0-SNAPSHOT'
+
+subprojects {
+    apply plugin: 'com.github.johnrengelman.shadow'
+    apply plugin: 'java'
+    apply plugin: 'application'
+
+    tasks.withType(JavaCompile) {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        compile 'org.springframework:spring-context:5.1.5.RELEASE'
+        compile 'org.springframework:spring-core:5.1.5.RELEASE'
+        compile 'org.slf4j:slf4j-api:1.7.25'
+        compile 'ch.qos.logback:logback-classic:1.2.3'
+        compile 'org.projectlombok:lombok:1.16.20'
+    }
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:4.0.4'
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.4.1'
+}

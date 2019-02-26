@@ -1,0 +1,6 @@
+rootProject.name = 'demo.cluster'
+include 'web-module'
+include 'worker-module'
+include 'mysql-module'
+include 'shared-spring-module'
+
