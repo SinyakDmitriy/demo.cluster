@@ -4,7 +4,7 @@ version '1.0-SNAPSHOT'
 mainClassName = "io.vertx.core.Launcher"
 
 dependencies {
-    compile project(':mysql-module')
+    compile project(':shared-lib-module')
     compile 'io.vertx:vertx-hazelcast:3.6.3'
     compile 'io.vertx:vertx-web:3.6.3'
     compile 'io.vertx:vertx-core:3.6.3'

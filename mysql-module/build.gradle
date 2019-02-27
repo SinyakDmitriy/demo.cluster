@@ -11,8 +11,7 @@ repositories {
 }
 
 dependencies {
-    
-    compile project(':shared-repository-module')
+    compile project(':shared-spring-module')
     compile group: 'io.vertx', name: 'vertx-jdbc-client', version: '3.6.3'
     compile 'io.vertx:vertx-hazelcast:3.6.3'
     compile 'mysql:mysql-connector-java:8.0.15'
