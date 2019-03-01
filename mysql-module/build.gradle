@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    compile project(':shared-spring-module')
+    compile project(':shared-lib-module')
     compile group: 'io.vertx', name: 'vertx-jdbc-client', version: '3.6.3'
     compile 'io.vertx:vertx-hazelcast:3.6.3'
     compile 'mysql:mysql-connector-java:8.0.15'
@@ -22,7 +22,7 @@ dependencies {
 shadowJar {
     classifier = 'fat'
     manifest {
-        attributes('Main-Vertical': 'com.demo.cluster.Application')
+        attributes('Main-Vertical': 'com.demo.cluster.MysqlApplication')
     }
     mergeServiceFiles{
         include 'META-INF/services/io.vertx.core.spi.VerticleFactory'

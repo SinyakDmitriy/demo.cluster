@@ -19,7 +19,8 @@ subprojects {
     dependencies {
         compile 'org.springframework:spring-context:5.1.5.RELEASE'
         compile 'org.springframework:spring-core:5.1.5.RELEASE'
-        compile 'org.slf4j:slf4j-api:1.7.25'
+        compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.26'
+
         compile 'ch.qos.logback:logback-classic:1.2.3'
         compile 'org.projectlombok:lombok:1.16.20'
     }

@@ -1,8 +1,8 @@
-package com.demo.cluster.api;
+package com.demo.cluster.eventbus;
 
 import io.reactivex.Observable;
 
-public interface IUserApi {
+public interface IUserConsumer {
 
     Observable findUserById(int id, long _id);
 }

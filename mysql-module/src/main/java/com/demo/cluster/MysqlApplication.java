@@ -4,7 +4,7 @@ import com.demo.cluster.spring.CustomAnnotationApplicationContextProvider;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Vertx;
 
-public class Application extends AbstractVerticle {
+public class MysqlApplication extends AbstractVerticle {
 
     @Override
     public void start() throws Exception {

@@ -14,7 +14,7 @@ dependencies {
 shadowJar {
     classifier = 'fat'
     manifest {
-        attributes('Main-Verticle': 'com.demo.cluster.Application')
+        attributes('Main-Verticle': 'com.demo.cluster.WebApplication')
 
     }
     mergeServiceFiles {

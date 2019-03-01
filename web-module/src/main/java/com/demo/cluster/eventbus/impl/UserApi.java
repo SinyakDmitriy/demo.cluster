@@ -1,6 +1,6 @@
-package com.demo.cluster.api.impl;
+package com.demo.cluster.eventbus.impl;
 
-import com.demo.cluster.api.IUserApi;
+import com.demo.cluster.eventbus.IUserApi;
 import com.demo.cluster.model.mysql.Role;
 import com.demo.cluster.model.mysql.User;
 import com.demo.cluster.spring.annotations.Api;
@@ -16,16 +16,16 @@ import org.springframework.stereotype.Component;
 public class UserApi implements IUserApi {
 
     @AuthRole(Role.USER)
-    @Get("/api/user/get/user/auth")
+    @Get("/eventbus/user/get/user/auth")
     public Observable<User> getUser(HttpServerRequest request, HttpServerResponse response, User user) {
-        System.out.println("user api - get user");
+        System.out.println("user eventbus - get user");
         return Observable.just(new User("old user"));
     }
 
     //    @AuthRole(Role.USER)
-    @Get("/api/user/get/user")
+    @Get("/eventbus/user/get/user")
     public Observable<User> getUser(HttpServerRequest request, HttpServerResponse response) {
-        System.out.println("user api - get user");
+        System.out.println("user eventbus - get user");
         return Observable.just(new User("old user"));
     }
 

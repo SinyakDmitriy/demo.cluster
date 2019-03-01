@@ -1,4 +1,4 @@
-package com.demo.cluster.api;
+package com.demo.cluster.eventbus;
 
 import com.demo.cluster.model.mysql.User;
 import io.reactivex.Observable;

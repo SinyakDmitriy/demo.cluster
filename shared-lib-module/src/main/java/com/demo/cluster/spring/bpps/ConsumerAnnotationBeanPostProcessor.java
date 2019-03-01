@@ -1,9 +1,10 @@
 package com.demo.cluster.spring.bpps;
 
-import com.demo.cluster.spring.annotations.EventBus;
 import com.demo.cluster.spring.annotations.Consumer;
+import com.demo.cluster.spring.annotations.EventBusMarker;
 import com.demo.cluster.spring.model.Argument;
 import io.reactivex.Observable;
+import io.vertx.core.eventbus.EventBus;
 import io.vertx.core.json.JsonObject;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,17 +23,17 @@ import java.util.Map;
 import static java.util.Objects.isNull;
 
 @Component
-public class EventBusAnnotationBeanPostProcessor implements BeanPostProcessor {
+public class ConsumerAnnotationBeanPostProcessor implements BeanPostProcessor {
 
     @Autowired private ParameterNameDiscoverer parameterNameDiscoverer;
     private Map<String, Class> map = new HashMap<>();
-    @Autowired private io.vertx.core.eventbus.EventBus eventBus;
+    @Autowired private EventBus eventBus;
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
 
         Class<?> beanClass = bean.getClass();
-        if(beanClass.isAnnotationPresent(EventBus.class)){
+        if(beanClass.isAnnotationPresent(EventBusMarker.class)){
             map.put(beanName, beanClass);
         }
 
@@ -93,7 +94,7 @@ public class EventBusAnnotationBeanPostProcessor implements BeanPostProcessor {
         Parameter[] parameters = method.getParameters();
         List<Argument> list = new ArrayList<>();
         for (int i = 0; i < names.length; i++) {
-            Argument arg = new Argument(names[i], parameters[i].getType());
+            Argument arg = new Argument(names[i], parameters[i].getType(), null);
             list.add(arg);
         }
 

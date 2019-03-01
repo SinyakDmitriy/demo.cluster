@@ -1,12 +1,10 @@
 package com.demo.cluster;
 
 import com.demo.cluster.spring.CustomAnnotationApplicationContextProvider;
-import com.demo.cluster.web.Server;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Vertx;
-import io.vertx.core.json.JsonObject;
 
-public class Application extends AbstractVerticle {
+public class WebApplication extends AbstractVerticle {
 
     @Override
     public void start() throws Exception {
